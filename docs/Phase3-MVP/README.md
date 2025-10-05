@@ -17,6 +17,12 @@ Define product requirements, establish acceptance criteria, and implement a work
 - `agents.md` — AI roles, personas, and coordination protocols
 - Prototype code and setup instructions
 
+## Agents Quick Start
+- Open `docs/Phase3-MVP/agents.md`.
+- Capture PRD must‑haves, acceptance criteria, and non‑functional requirements.
+- Confirm agent roles and handoffs; update `PRD.md` and `agents.md`.
+- Ensure a minimal end‑to‑end prototype plan is in place.
+
 ## Base Prompt
 ```text
 Move to Phase 3. Draft PRD acceptance criteria and define agents/personas.

@@ -14,6 +14,12 @@ Translate the main idea into structured concepts, actionable goals, and clear sc
 ## Deliverables
 - `IDEA_NOTE.md` — Structured idea with goals, scope, and risks
 
+## Agents Quick Start
+- Open `docs/Phase1-Ideation/agents.md`.
+- Use the Prompt Starter to propose a measurable objective, 2–3 goals, and 2–3 metrics.
+- Draft scope (in/out) and top risks; update `IDEA_NOTE.md` minimally.
+- Confirm readiness for Phase 2 against the Success Criteria.
+
 ## Base Prompt
 ```text
 Move to Phase 1. Refine the idea into structured goals, scope, and assumptions.

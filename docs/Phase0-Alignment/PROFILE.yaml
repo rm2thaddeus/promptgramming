@@ -1,6 +1,6 @@
 ---
 phase: 0
-artifact: user_profile
+artifact: expertise_profile
 project: <project_name>
 owner: <user_or_team>
 updated: <YYYY-MM-DD>
@@ -10,38 +10,76 @@ links:
   context: ./docs/Phase0-Alignment/CONTEXT.md
 ---
 
-communication:
-  preferred_medium: <cursor|vscode|terminal|browser>
-  verbosity: <brief|balanced|detailed>
-  tone: <direct|supportive|inquisitive>
-  decision_style: <decisive|collaborative|exploratory>
-  prefers_explanations: <true|false>
-  accepts_code_edits_without_prompt: <true|false>
-  review_style: <diff|summary|inline>
+# Expertise Assessment Framework
+# Purpose: Identify specific gaps to enable targeted AI assistance
 
-background:
-  experience_level: <beginner|intermediate|advanced>
-  primary_stack: <languages_and_frameworks>
-  tools: [<editor>, <vcs>, <ci>, <mcp_servers>]
-  goals:
-    - <goal_1>
-    - <goal_2>
+## Core Assumptions
+- User has interest in coding and AI tools (prerequisite for using this template)
+- User can articulate intent but may lack specific technical knowledge
+- AI should bridge expertise gaps while preserving user agency
 
-collaboration_contract:
-  - "AI proposes small, targeted edits with acceptance criteria."
-  - "User may override conventions; AI adapts."
-  - "Prefer explicit checklists and incremental delivery."
-  - "Avoid long blocks; cite code minimally and clearly."
+## Technical Expertise Gaps
+programming:
+  languages: 
+    comfort_level: <beginner|intermediate|advanced>
+    gaps: [<specific_language_or_concept>]
+  frameworks:
+    comfort_level: <beginner|intermediate|advanced>
+    gaps: [<specific_framework_or_pattern>]
+  tools:
+    editor: <cursor|vscode|vim|other>
+    version_control: <git_novice|git_comfortable|git_expert>
+    testing: <no_experience|basic|comprehensive>
+    deployment: <no_experience|basic|production_ready>
 
-observed_style:
-  prompting_expertise: <novice|practitioner|expert>
-  message_patterns:
-    - <pattern_1>
-    - <pattern_2>
-  risk_tolerance: <low|medium|high>
-  feedback_preferences: <quick_iterations|thorough_reviews>
+ai_tools:
+  prompting:
+    experience: <novice|practitioner|expert>
+    gaps: [<specific_prompting_technique>]
+  mcp_servers:
+    experience: <none|basic|advanced>
+    gaps: [<specific_mcp_server_or_pattern>]
+  ai_assistance:
+    preference: <guided|collaborative|independent>
+    explanation_depth: <minimal|moderate|comprehensive>
+
+## Project Context Gaps
+domain_knowledge:
+  area: <web_dev|data_science|ai_ml|devops|other>
+  expertise_level: <beginner|intermediate|advanced>
+  specific_gaps: [<domain_specific_concept>]
+
+architecture:
+  system_design: <novice|intermediate|expert>
+  scalability: <not_considered|basic|production_focus>
+  security: <not_considered|basic|security_focused>
+
+## Communication Preferences (Derived from Expertise)
+explanation_style:
+  when_gaps_identified: <step_by_step|conceptual_overview|reference_links>
+  code_explanations: <inline_comments|separate_docs|verbal_only>
+  error_handling: <show_solution|explain_why|teach_debugging>
+
+collaboration_mode:
+  ai_initiative: <proactive|reactive|guided>
+  decision_making: <ai_suggests|collaborative|user_decides>
+  feedback_style: <immediate|batch|milestone_based>
+
+## Identified Learning Path
+priority_gaps: [<gap_1>, <gap_2>, <gap_3>]
+learning_preferences:
+  - <preferred_learning_method>
+  - <preferred_pace>
+  - <preferred_depth>
+
+## AI Adaptation Strategy
+based_on_gaps:
+  explanation_depth: <minimal|moderate|comprehensive>
+  code_style: <verbose|concise|mixed>
+  error_prevention: <proactive|reactive|educational>
+  tool_recommendations: <basic|advanced|custom>
 
 notes: |
-  <freeform_observations_and_alignment_notes>
+  <observations_about_user_expertise_patterns_and_adaptation_needs>
 
 

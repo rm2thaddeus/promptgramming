@@ -15,6 +15,12 @@ Research feasibility, test architecture options, validate dependencies, and sket
 ## Deliverables
 - `POC_PLAN.md` — Research findings, architecture, spikes, and implementation plan
 
+## Agents Quick Start
+- Open `docs/Phase2-POC/agents.md`.
+- Summarize feasibility and dependencies; add references.
+- Propose candidate stack, smallest E2E slice, and 1–2 spikes with criteria.
+- Update `POC_PLAN.md` and check Success Criteria for Phase 3 readiness.
+
 ## Base Prompt
 ```text
 Move to Phase 2. Research feasibility, architecture options, and dependencies.

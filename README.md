@@ -1,4 +1,4 @@
-Translation Hill Project Template
+Promptgramming, the Translation Hill Project Template
 
 Purpose
 - A reusable, human-readable template to run robust, conversational AI coding projects.
@@ -12,6 +12,13 @@ How to Use
 2. Advance to Phase 1 (Ideation) to refine goals in `IDEA_NOTE.md`.
 3. Conduct Phase 2 (POC) research and architecture in `POC_PLAN.md`.
 4. Build Phase 3 (MVP) using `PRD.md`, `agents.md`, and your prototype code.
+
+Running the Agents
+- Start in `docs/Phase0-Alignment/agents.md`: use the Prompt Starter to run Level 1 from Progressive Disclosure, then update `PROFILE.yaml` and `CONTEXT.md`. Timebox to 5–10 minutes.
+- Move to `docs/Phase1-Ideation/agents.md`: refine the objective, goals, metrics, scope, and risks into `IDEA_NOTE.md`.
+- Continue with `docs/Phase2-POC/agents.md`: capture feasibility, candidate stack, spikes, and risks in `POC_PLAN.md`.
+- Finalize in `docs/Phase3-MVP/agents.md`: draft `PRD.md`, confirm acceptance criteria, and coordinate roles.
+- Keep edits small; always update the `updated` field in frontmatter.
 
 Conversation Principles
 - Treat dialogue like a compiler: translate human intent into buildable artifacts.
@@ -31,6 +38,10 @@ links:
   profile: ./PROFILE.yaml
   context: ./CONTEXT.md
 ---
+
+Link Policy
+- In this template, cross-phase links inside frontmatter use repo-root style paths: `./docs/<Phase>/<File>` for stability.
+- Within the same folder, local paths may be used where appropriate.
 
 Phases Overview
 - Phase 0 – Alignment
@@ -111,5 +122,4 @@ Repository Structure
 Notes on the Attached Translation Hill Document
 - This template anticipates alignment with the Translation Hill methodology. Where the document specifies patterns, map them into the corresponding phase files and rules.
 - Replace placeholders with project-specific details once available.
-
 

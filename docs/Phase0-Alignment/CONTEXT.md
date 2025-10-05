@@ -37,11 +37,22 @@ Assumptions and Risks
 
 Phase 0 Prompt Starters
 ```text
-Begin Alignment:
-- Ask about editor, OS, background, learning style.
-- Infer prompting expertise and communication style.
-- Propose a one-sentence main idea; refine with user feedback.
-Outputs: Update PROFILE.yaml and CONTEXT.md.
+Begin Expertise Assessment (Level 1):
+- Assess core programming language and editor familiarity.
+- Identify basic technical gaps and learning preferences.
+- Help articulate the main project idea in one sentence.
+- Adapt assistance style based on identified gaps.
+Outputs: Update PROFILE.yaml with expertise gaps and CONTEXT.md with main idea.
+
+For deeper assessment, continue to Level 2:
+- Identify specific technical challenges and AI tool experience.
+- Establish collaboration preferences and learning priorities.
+- Document detailed expertise gaps for targeted assistance.
+
+For comprehensive projects, proceed to Level 3:
+- Assess architecture knowledge and scalability considerations.
+- Understand security requirements and integration patterns.
+- Establish long-term learning objectives.
 ```
 
 
