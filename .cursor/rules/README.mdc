@@ -1,0 +1,20 @@
+Title: Rules Overview
+
+Scope
+- Project-specific rules for Translation Hill methodology and MCP usage.
+
+Rule Hierarchy
+1. Project rules in this directory
+2. Framework patterns
+3. General best practices
+4. User preferences
+
+Conventions
+- Use YAML frontmatter on all artifacts.
+- Keep edits small; reconcile todos before and after changes.
+- Prefer explicit checklists and acceptance criteria.
+
+MCP Usage
+- Suggested servers: github, supabase, browser-tools, browser-control, context7, docker, mindmap.
+- Choose servers aligned to the current phase and tasks.
+

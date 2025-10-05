@@ -1,0 +1,21 @@
+Title: Debugging Rules
+
+Principles
+- Reproduce before fixing. Add minimal failing case if needed.
+- Prefer logs and narrow diffs over broad changes.
+- Never suppress errors without handling root cause.
+
+Checklist
+- [ ] Confirm environment and versions
+- [ ] Capture error and stack trace
+- [ ] Identify last known good state
+- [ ] Create hypothesis and test it
+- [ ] Add/adjust tests and observability
+
+Prompts
+```text
+Follow debugging.mdc:
+- Reproduce, collect errors, form hypotheses, and validate.
+- Propose minimal fix with acceptance criteria.
+```
+

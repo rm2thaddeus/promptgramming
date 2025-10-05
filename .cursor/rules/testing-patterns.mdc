@@ -1,0 +1,20 @@
+Title: Testing Patterns
+
+Principles
+- Test behavior, not implementation details.
+- Start with acceptance tests; add unit tests for hot spots.
+- Keep tests deterministic and fast.
+
+Checklist
+- [ ] Define acceptance criteria (from PRD)
+- [ ] Write minimal passing tests
+- [ ] Add failure cases and edge conditions
+- [ ] Include smoke tests in CI
+
+Prompts
+```text
+Apply testing-patterns.mdc:
+- Derive tests from PRD acceptance criteria.
+- Propose minimal tests for MVP slice.
+```
+

@@ -1,0 +1,23 @@
+Title: MCP Usage
+
+Servers
+- github-mcp: repo ops and reviews
+- supabase-mcp: schema and data ops
+- browser-tools: audits and perf
+- browser-control: navigation and scraping
+- context7: docs and API references
+- docker: local env and CI parity
+- mindmap: visual planning
+
+Guidelines
+- Select servers per phase and task.
+- Cite which rule file you follow in prompts.
+- Keep commands non-interactive when possible.
+
+Prompt
+```text
+Following mcp-usage.mdc:
+- Choose appropriate MCP servers for this task.
+- Explain selection and expected outputs.
+```
+
