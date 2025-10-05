@@ -1,23 +1,28 @@
-# Phase 0: Alignment
+# Phase 0 - Alignment
 
 ## Purpose
 Establish collaboration norms, infer user profile, and define the main project idea through structured conversation.
 
-## Key Files
-- `PROFILE.yaml` - User profile and collaboration preferences
-- `CONTEXT.md` - Project background, constraints, and main idea
+## Key Activities
+- **User Profiling**: Understand editor, OS, experience level, communication style
+- **Collaboration Setup**: Define how AI and user will work together
+- **Idea Articulation**: Help user express their main project idea in one clear sentence
 
-## Process
-1. **User Discovery**: Ask about editor, OS, experience, and communication preferences
-2. **Style Inference**: Analyze prompting expertise and decision-making patterns
-3. **Idea Articulation**: Help formulate a clear, one-sentence project objective
-4. **Profile Building**: Document collaboration contract and observed patterns
+## Deliverables
+- `PROFILE.yaml` — User profile and collaboration preferences
+- `CONTEXT.md` — Project background, constraints, and main idea
+
+## Base Prompt
+```text
+You are my AI pair programmer. Start Phase 0 (Alignment).
+- Ask about my editor, OS, experience, and preferences.
+- Infer my prompting expertise and communication style.
+- Help me articulate the main project idea in one sentence.
+Output: update PROFILE.yaml and CONTEXT.md.
+```
 
 ## Success Criteria
-- [ ] User profile captured in PROFILE.yaml
-- [ ] Project context documented in CONTEXT.md
-- [ ] Clear main idea articulated in one sentence
-- [ ] Collaboration preferences established
-
-## Next Phase
-Move to Phase 1 (Ideation) to refine the idea into structured goals and assumptions.
+- [ ] User profile captured with communication preferences
+- [ ] Project context documented with constraints
+- [ ] Main idea clearly stated in one sentence
+- [ ] Collaboration contract established

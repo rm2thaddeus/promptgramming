@@ -1,23 +1,32 @@
-# Phase 3: MVP (Minimum Viable Product)
+# Phase 3 - MVP (Minimum Viable Product)
 
 ## Purpose
-Implement a minimal end-to-end prototype with documentation and defined AI roles.
+Define product requirements, establish acceptance criteria, and implement a working prototype.
 
-## Key Files
-- `PRD.md` - Product requirements and acceptance criteria
-- `agents.md` - AI roles and coordination protocols
+## Key Activities
+- **Requirements Definition**: Convert ideas into testable product requirements
+- **Acceptance Criteria**: Define specific, observable outcomes
+- **Agent Coordination**: Establish AI roles and handoff protocols
+- **Prototype Development**: Build minimal end-to-end functionality
 
-## Process
-1. **Requirements Definition**: Create detailed acceptance criteria
-2. **Agent Design**: Define AI roles and handoff protocols
-3. **Implementation**: Build working prototype with tests
-4. **Documentation**: Create setup and usage instructions
+## Prerequisites
+- Completed Phase 2: `POC_PLAN.md` with validated architecture and spikes
+
+## Deliverables
+- `PRD.md` — Product requirements document with acceptance criteria
+- `agents.md` — AI roles, personas, and coordination protocols
+- Prototype code and setup instructions
+
+## Base Prompt
+```text
+Move to Phase 3. Draft PRD acceptance criteria and define agents/personas.
+Output: PRD.md and agents.md with checklists and next actions.
+```
 
 ## Success Criteria
-- [ ] Clear acceptance criteria defined
-- [ ] AI agents and roles specified
-- [ ] Working prototype implemented
-- [ ] Documentation complete
-
-## Next Phase
-Move to Phase 4 (Deployment) to plan production rollout.
+- [ ] Product requirements clearly defined
+- [ ] Acceptance criteria are specific and testable
+- [ ] AI agents and roles established
+- [ ] Non-functional requirements captured
+- [ ] Rollout plan defined with milestones
+- [ ] Working prototype demonstrates core functionality

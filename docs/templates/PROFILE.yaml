@@ -1,0 +1,47 @@
+---
+phase: 0
+artifact: user_profile
+project: <project_name>
+owner: <user_or_team>
+updated: <YYYY-MM-DD>
+sources: []
+links:
+  profile: ./PROFILE.yaml
+  context: ./CONTEXT.md
+---
+
+communication:
+  preferred_medium: <cursor|vscode|terminal|browser>
+  verbosity: <brief|balanced|detailed>
+  tone: <direct|supportive|inquisitive>
+  decision_style: <decisive|collaborative|exploratory>
+  prefers_explanations: <true|false>
+  accepts_code_edits_without_prompt: <true|false>
+  review_style: <diff|summary|inline>
+
+background:
+  experience_level: <beginner|intermediate|advanced>
+  primary_stack: <languages_and_frameworks>
+  tools: [<editor>, <vcs>, <ci>, <mcp_servers>]
+  goals:
+    - <goal_1>
+    - <goal_2>
+
+collaboration_contract:
+  - "AI proposes small, targeted edits with acceptance criteria."
+  - "User may override conventions; AI adapts."
+  - "Prefer explicit checklists and incremental delivery."
+  - "Avoid long blocks; cite code minimally and clearly."
+
+observed_style:
+  prompting_expertise: <novice|practitioner|expert>
+  message_patterns:
+    - <pattern_1>
+    - <pattern_2>
+  risk_tolerance: <low|medium|high>
+  feedback_preferences: <quick_iterations|thorough_reviews>
+
+notes: |
+  <freeform_observations_and_alignment_notes>
+
+

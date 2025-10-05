@@ -1,2 +1,0 @@
-# This file ensures the reference directory is tracked by git
-# The actual reference files are symlinked and ignored

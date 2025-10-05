@@ -1,22 +1,28 @@
-# Phase 1: Ideation
+# Phase 1 - Ideation
 
 ## Purpose
-Translate the main idea into structured concepts, actionable goals, and clear assumptions.
+Translate the main idea into structured concepts, actionable goals, and clear scope boundaries.
 
-## Key Files
-- `IDEA_NOTE.md` - Refined idea, goals, constraints, and risks
+## Key Activities
+- **Goal Refinement**: Convert the main idea into concrete, measurable objectives
+- **Scope Definition**: Establish what's in-scope and out-of-scope
+- **Risk Assessment**: Identify assumptions and potential risks
 
-## Process
-1. **Idea Validation**: Test the main idea against user goals and constraints
-2. **Goal Extraction**: Identify concrete, measurable outcomes
-3. **Scope Definition**: Clarify in-scope and out-of-scope items
-4. **Risk Assessment**: Identify unknowns and propose validation tasks
+## Prerequisites
+- Completed Phase 0: `PROFILE.yaml` and `CONTEXT.md` with main idea defined
+
+## Deliverables
+- `IDEA_NOTE.md` — Structured idea with goals, scope, and risks
+
+## Base Prompt
+```text
+Move to Phase 1. Refine the idea into structured goals, scope, and assumptions.
+Output: fill IDEA_NOTE.md with frontmatter and a clear objective.
+```
 
 ## Success Criteria
-- [ ] Clear objective statement
-- [ ] Defined goals and success metrics
-- [ ] Identified constraints and risks
-- [ ] Validation tasks proposed
-
-## Next Phase
-Move to Phase 2 (POC) to research feasibility and architecture options.
+- [ ] Objective clearly stated and measurable
+- [ ] Goals and success metrics defined
+- [ ] Scope boundaries established
+- [ ] Risks and unknowns identified
+- [ ] User preferences reflected from PROFILE.yaml

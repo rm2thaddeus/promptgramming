@@ -1,22 +1,30 @@
-# Phase 2: Proof of Concept (POC)
+# Phase 2 - Proof of Concept (POC)
 
 ## Purpose
-Research feasibility, dependencies, architecture, UX sketch, and conduct technical spikes.
+Research feasibility, test architecture options, validate dependencies, and sketch UX/UI elements.
 
-## Key Files
-- `POC_PLAN.md` - Research notes, architecture, and experimental results
+## Key Activities
+- **Feasibility Research**: Can we build it? What are the dependencies?
+- **Architecture Design**: Sketch system components and data flow
+- **Technology Spikes**: Test critical components and integrations
+- **UX/UI Planning**: Define user personas and journey
 
-## Process
-1. **Feasibility Research**: Investigate core dependencies and constraints
-2. **Architecture Design**: Sketch system components and data flow
-3. **Technical Spikes**: Prototype risky or unknown components
-4. **UX Planning**: Define personas, user journeys, and wireframes
+## Prerequisites
+- Completed Phase 1: `IDEA_NOTE.md` with clear objectives and scope
+
+## Deliverables
+- `POC_PLAN.md` — Research findings, architecture, spikes, and implementation plan
+
+## Base Prompt
+```text
+Move to Phase 2. Research feasibility, architecture options, and dependencies.
+Output: populate POC_PLAN.md with findings, candidate stacks, and risks.
+```
 
 ## Success Criteria
-- [ ] Core dependencies validated
-- [ ] Architecture sketched and documented
-- [ ] Technical risks identified and mitigated
-- [ ] UX approach defined
-
-## Next Phase
-Move to Phase 3 (MVP) to implement the working prototype.
+- [ ] Feasibility questions answered
+- [ ] Candidate technology stack identified
+- [ ] Architecture diagram sketched
+- [ ] 1-2 technology spikes planned with success criteria
+- [ ] User personas and journey defined
+- [ ] Risks identified with mitigation strategies

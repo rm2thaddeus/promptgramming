@@ -56,25 +56,25 @@ Base Prompts (Copy/Paste Starters)
   - Ask about my editor, OS, experience, and preferences.
   - Infer my prompting expertise and communication style.
   - Help me articulate the main project idea in one sentence.
-  Output: update docs/Phase0-Alignment/PROFILE.yaml and docs/Phase0-Alignment/CONTEXT.md.
+  Output: update PROFILE.yaml and CONTEXT.md.
   """
 
 - Phase 1 refinement
   """
   Move to Phase 1. Refine the idea into structured goals, scope, and assumptions.
-  Output: fill docs/Phase1-Ideation/IDEA_NOTE.md with frontmatter and a clear objective.
+  Output: fill IDEA_NOTE.md with frontmatter and a clear objective.
   """
 
 - Phase 2 spike
   """
   Move to Phase 2. Research feasibility, architecture options, and dependencies.
-  Output: populate docs/Phase2-POC/POC_PLAN.md with findings, candidate stacks, and risks.
+  Output: populate POC_PLAN.md with findings, candidate stacks, and risks.
   """
 
 - Phase 3 implementation
   """
   Move to Phase 3. Draft PRD acceptance criteria and define agents/personas.
-  Output: docs/Phase3-MVP/PRD.md and docs/Phase3-MVP/agents.md with checklists and next actions.
+  Output: PRD.md and agents.md with checklists and next actions.
   """
 
 MCP and Rules
@@ -99,16 +99,9 @@ Repository Structure
 │   │   ├── PRD.md          # Product requirements
 │   │   ├── agents.md       # AI roles & coordination
 │   │   └── README.md       # Phase 3 guide
-│   ├── Phase4-Deployment/   # Production deployment
-│   │   ├── DEPLOYMENT_PLAN.md # Infrastructure & operations
-│   │   └── README.md       # Phase 4 guide
 │   ├── templates/           # Shared templates & guides
-│   │   ├── TEMPLATE_USAGE.md
-│   │   ├── BRANCHING_GUIDE.md
-│   │   └── README.md
+│   │   └── README.md       # Template usage guide
 │   └── .cursor/rules/       # MCP and development guidance
-├── reference/               # External reference materials
-│   └── research/           # Junction to C:\Users\aitor\Documents\research
 ├── Code/                   # Project code (when using template)
 │   ├── Backend/
 │   └── Frontend/
