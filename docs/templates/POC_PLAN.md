@@ -6,9 +6,9 @@ owner: <user_or_team>
 updated: <YYYY-MM-DD>
 sources: []
 links:
-  profile: ./PROFILE.yaml
-  context: ./CONTEXT.md
-  idea: ./IDEA_NOTE.md
+  profile: ./docs/templates/PROFILE.yaml
+  context: ./docs/templates/CONTEXT.md
+  idea: ./docs/templates/IDEA_NOTE.md
 ---
 
 Feasibility Questions

@@ -6,8 +6,8 @@ owner: <user_or_team>
 updated: <YYYY-MM-DD>
 sources: []
 links:
-  profile: ./PROFILE.yaml
-  context: ./CONTEXT.md
+  profile: ./docs/templates/PROFILE.yaml
+  context: ./docs/templates/CONTEXT.md
 ---
 
 Main Idea (one sentence)

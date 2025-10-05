@@ -6,10 +6,10 @@ owner: <product_owner>
 updated: <YYYY-MM-DD>
 sources: []
 links:
-  profile: ./PROFILE.yaml
-  context: ./CONTEXT.md
-  idea: ./IDEA_NOTE.md
-  poc: ./POC_PLAN.md
+  profile: ./docs/templates/PROFILE.yaml
+  context: ./docs/templates/CONTEXT.md
+  idea: ./docs/templates/IDEA_NOTE.md
+  poc: ./docs/templates/POC_PLAN.md
 ---
 
 Product Summary
