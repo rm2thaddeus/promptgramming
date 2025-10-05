@@ -16,31 +16,27 @@ A reusable, conversational AI coding project template implementing the Translati
    - Ask about my editor, OS, experience, and preferences.
    - Infer my prompting expertise and communication style.
    - Help me articulate the main project idea in one sentence.
-   Output: update templates/phase-templates/PROFILE.yaml and templates/phase-templates/CONTEXT.md.
+   Output: update docs/templates/PROFILE.yaml and docs/templates/CONTEXT.md.
    ```
 
-3. **Follow the phases**: See `templates/documentation/TEMPLATE_USAGE.md` for complete workflow.
+3. **Follow the phases**: See `docs/templates/TEMPLATE_USAGE.md` for complete workflow.
 
 ## Repository Structure
 
 ```
-├── templates/               # All template files organized
-│   ├── phase-templates/     # Phase 0-3 template files
-│   │   ├── PROFILE.yaml    # User profile & collaboration style
-│   │   ├── CONTEXT.md      # Project background & constraints
-│   │   ├── IDEA_NOTE.md    # Refined idea & goals
-│   │   ├── POC_PLAN.md     # Research & architecture
-│   │   ├── PRD.md          # Product requirements
-│   │   └── agents.md       # AI roles & coordination
-│   ├── documentation/       # Usage guides and workflows
-│   │   ├── TEMPLATE_USAGE.md   # Usage guide
-│   │   ├── BRANCHING_GUIDE.md  # Git workflow
-│   │   └── README.md       # Template documentation
-│   └── rules/              # Development guidance
-│       ├── debugging.mdc   # Debugging patterns
-│       ├── testing-patterns.mdc # Testing guidance
-│       ├── mcp-usage.mdc   # MCP server usage
-│       └── README.mdc      # Rules overview
+├── docs/                    # Documentation and templates
+│   └── templates/           # All template files organized
+│       ├── PROFILE.yaml    # User profile & collaboration style
+│       ├── CONTEXT.md      # Project background & constraints
+│       ├── IDEA_NOTE.md    # Refined idea & goals
+│       ├── POC_PLAN.md     # Research & architecture
+│       ├── PRD.md          # Product requirements
+│       ├── agents.md       # AI roles & coordination
+│       ├── TEMPLATE_USAGE.md   # Usage guide
+│       ├── BRANCHING_GUIDE.md  # Git workflow
+│       └── README.md       # Template documentation
+├── templates/               # Project-specific rules
+│   └── .cursor/rules/      # MCP and development guidance
 ├── reference/               # External reference materials
 │   └── research/           # Symlinked to C:\Users\aitor\Documents\research
 └── README.md               # This file
@@ -56,9 +52,9 @@ A reusable, conversational AI coding project template implementing the Translati
 
 ## Documentation
 
-- `templates/documentation/TEMPLATE_USAGE.md` - Complete usage guide
-- `templates/documentation/BRANCHING_GUIDE.md` - Git workflow and branching
-- `templates/rules/` - Development and MCP guidance
+- `docs/templates/TEMPLATE_USAGE.md` - Complete usage guide
+- `docs/templates/BRANCHING_GUIDE.md` - Git workflow and branching
+- `templates/.cursor/rules/` - Development and MCP guidance
 
 ## Reference Materials
 

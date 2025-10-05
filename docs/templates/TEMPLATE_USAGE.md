@@ -18,38 +18,35 @@ You are my AI pair programmer. Start Phase 0 (Alignment).
 - Ask about my editor, OS, experience, and preferences.
 - Infer my prompting expertise and communication style.
 - Help me articulate the main project idea in one sentence.
-Output: update templates/phase-templates/PROFILE.yaml and templates/phase-templates/CONTEXT.md.
+Output: update PROFILE.yaml and CONTEXT.md.
 ```
 
 ### 3. Progress Through Phases
-- **Phase 1**: Refine idea → `templates/phase-templates/IDEA_NOTE.md`
-- **Phase 2**: Research & POC → `templates/phase-templates/POC_PLAN.md`
-- **Phase 3**: Build MVP → `templates/phase-templates/PRD.md` + `templates/phase-templates/agents.md`
+- **Phase 1**: Refine idea → `IDEA_NOTE.md`
+- **Phase 2**: Research & POC → `POC_PLAN.md`
+- **Phase 3**: Build MVP → `PRD.md` + `agents.md`
 
 ## Template Structure
 
 ```
-├── templates/
-│   ├── phase-templates/
-│   │   ├── PROFILE.yaml          # User profile & collaboration style
-│   │   ├── CONTEXT.md            # Project background & constraints
-│   │   ├── IDEA_NOTE.md          # Refined idea & goals
-│   │   ├── POC_PLAN.md           # Research & architecture
-│   │   ├── PRD.md                # Product requirements
-│   │   └── agents.md             # AI roles & coordination
-│   ├── rules/                    # Project-specific guidance
-│   │   ├── debugging.mdc
-│   │   ├── testing-patterns.mdc
-│   │   ├── mcp-usage.mdc
-│   │   └── README.mdc
-│   └── documentation/
-│       └── TEMPLATE_USAGE.md     # This file
+├── PROFILE.yaml          # User profile & collaboration style
+├── CONTEXT.md            # Project background & constraints
+├── IDEA_NOTE.md          # Refined idea & goals
+├── POC_PLAN.md           # Research & architecture
+├── PRD.md                # Product requirements
+├── agents.md             # AI roles & coordination
+├── .cursor/rules/        # Project-specific guidance
+│   ├── debugging.mdc
+│   ├── testing-patterns.mdc
+│   ├── mcp-usage.mdc
+│   └── README.mdc
+└── TEMPLATE_USAGE.md     # This file
 ```
 
 ## Customization
 
 1. **Replace placeholders** in all YAML frontmatter (`<project_name>`, `<user_or_team>`, etc.)
-2. **Adapt templates/rules** for your project's specific needs
+2. **Adapt .cursor/rules** for your project's specific needs
 3. **Add project-specific files** as needed
 4. **Update README.md** with your project details
 
