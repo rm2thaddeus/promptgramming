@@ -44,3 +44,8 @@ build/
 
 # Project-specific ignores
 # Add your project-specific files here
+
+# Reference files (symlinked from external locations)
+reference/research/
+reference/*
+!reference/.gitkeep
