@@ -56,48 +56,59 @@ Base Prompts (Copy/Paste Starters)
   - Ask about my editor, OS, experience, and preferences.
   - Infer my prompting expertise and communication style.
   - Help me articulate the main project idea in one sentence.
-  Output: update docs/templates/PROFILE.yaml and docs/templates/CONTEXT.md.
+  Output: update docs/Phase0-Alignment/PROFILE.yaml and docs/Phase0-Alignment/CONTEXT.md.
   """
 
 - Phase 1 refinement
   """
   Move to Phase 1. Refine the idea into structured goals, scope, and assumptions.
-  Output: fill docs/templates/IDEA_NOTE.md with frontmatter and a clear objective.
+  Output: fill docs/Phase1-Ideation/IDEA_NOTE.md with frontmatter and a clear objective.
   """
 
 - Phase 2 spike
   """
   Move to Phase 2. Research feasibility, architecture options, and dependencies.
-  Output: populate docs/templates/POC_PLAN.md with findings, candidate stacks, and risks.
+  Output: populate docs/Phase2-POC/POC_PLAN.md with findings, candidate stacks, and risks.
   """
 
 - Phase 3 implementation
   """
   Move to Phase 3. Draft PRD acceptance criteria and define agents/personas.
-  Output: docs/templates/PRD.md and docs/templates/agents.md with checklists and next actions.
+  Output: docs/Phase3-MVP/PRD.md and docs/Phase3-MVP/agents.md with checklists and next actions.
   """
 
 MCP and Rules
-- Follow project rules in `docs/templates/.cursor/rules/*.mdc` (e.g., debugging, testing, docs, MCP usage).
+- Follow project rules in `docs/.cursor/rules/*.mdc` (e.g., debugging, testing, docs, MCP usage).
 - Suggested MCP servers: GitHub, Supabase, Browser Tools, Browser Control, Context7, Docker, Mindmap.
 - Use the alignment and communication rules for consistent, high-signal exchanges.
 
 Repository Structure
 ```
-├── docs/                    # Documentation and templates
-│   └── templates/           # All template files organized
-│       ├── PROFILE.yaml    # User profile & collaboration style
-│       ├── CONTEXT.md      # Project background & constraints
-│       ├── IDEA_NOTE.md    # Refined idea & goals
-│       ├── POC_PLAN.md     # Research & architecture
-│       ├── PRD.md          # Product requirements
-│       ├── agents.md       # AI roles & coordination
-│       ├── TEMPLATE_USAGE.md   # Usage guide
-│       ├── BRANCHING_GUIDE.md  # Git workflow
-│       ├── README.md       # Template documentation
-│       └── .cursor/rules/  # MCP and development guidance
+├── docs/                    # Phase-organized documentation
+│   ├── Phase0-Alignment/    # User profiling & collaboration setup
+│   │   ├── PROFILE.yaml    # User profile & collaboration style
+│   │   ├── CONTEXT.md      # Project background & constraints
+│   │   └── README.md       # Phase 0 guide
+│   ├── Phase1-Ideation/     # Idea refinement & goal setting
+│   │   ├── IDEA_NOTE.md    # Refined idea & goals
+│   │   └── README.md       # Phase 1 guide
+│   ├── Phase2-POC/          # Research & architecture
+│   │   ├── POC_PLAN.md     # Research & architecture plan
+│   │   └── README.md       # Phase 2 guide
+│   ├── Phase3-MVP/          # Implementation & requirements
+│   │   ├── PRD.md          # Product requirements
+│   │   ├── agents.md       # AI roles & coordination
+│   │   └── README.md       # Phase 3 guide
+│   ├── Phase4-Deployment/   # Production deployment
+│   │   ├── DEPLOYMENT_PLAN.md # Infrastructure & operations
+│   │   └── README.md       # Phase 4 guide
+│   ├── templates/           # Shared templates & guides
+│   │   ├── TEMPLATE_USAGE.md
+│   │   ├── BRANCHING_GUIDE.md
+│   │   └── README.md
+│   └── .cursor/rules/       # MCP and development guidance
 ├── reference/               # External reference materials
-│   └── research/           # Symlinked to C:\Users\aitor\Documents\research
+│   └── research/           # Junction to C:\Users\aitor\Documents\research
 ├── Code/                   # Project code (when using template)
 │   ├── Backend/
 │   └── Frontend/

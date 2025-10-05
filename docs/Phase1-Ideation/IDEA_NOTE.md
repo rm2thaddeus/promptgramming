@@ -6,8 +6,8 @@ owner: <user_or_team>
 updated: <YYYY-MM-DD>
 sources: []
 links:
-  profile: ./docs/templates/PROFILE.yaml
-  context: ./docs/templates/CONTEXT.md
+  profile: ./docs/Phase0-Alignment/PROFILE.yaml
+  context: ./docs/Phase0-Alignment/CONTEXT.md
 ---
 
 Objective

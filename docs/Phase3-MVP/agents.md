@@ -6,10 +6,10 @@ owner: <tech_lead>
 updated: <YYYY-MM-DD>
 sources: []
 links:
-  profile: ./docs/templates/PROFILE.yaml
-  context: ./docs/templates/CONTEXT.md
-  idea: ./docs/templates/IDEA_NOTE.md
-  poc: ./docs/templates/POC_PLAN.md
+  profile: ./docs/Phase0-Alignment/PROFILE.yaml
+  context: ./docs/Phase0-Alignment/CONTEXT.md
+  idea: ./docs/Phase1-Ideation/IDEA_NOTE.md
+  poc: ./docs/Phase2-POC/POC_PLAN.md
 ---
 
 Agent Roster
