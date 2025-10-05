@@ -16,25 +16,31 @@ A reusable, conversational AI coding project template implementing the Translati
    - Ask about my editor, OS, experience, and preferences.
    - Infer my prompting expertise and communication style.
    - Help me articulate the main project idea in one sentence.
-   Output: update docs/PROFILE.yaml and docs/CONTEXT.md.
+   Output: update templates/phase-templates/PROFILE.yaml and templates/phase-templates/CONTEXT.md.
    ```
 
-3. **Follow the phases**: See `docs/TEMPLATE_USAGE.md` for complete workflow.
+3. **Follow the phases**: See `templates/documentation/TEMPLATE_USAGE.md` for complete workflow.
 
 ## Repository Structure
 
 ```
-├── docs/                    # Documentation and templates
-│   ├── PROFILE.yaml        # User profile & collaboration style
-│   ├── CONTEXT.md          # Project background & constraints
-│   ├── IDEA_NOTE.md        # Refined idea & goals
-│   ├── POC_PLAN.md         # Research & architecture
-│   ├── PRD.md              # Product requirements
-│   ├── agents.md           # AI roles & coordination
-│   ├── TEMPLATE_USAGE.md   # Usage guide
-│   └── BRANCHING_GUIDE.md  # Git workflow
-├── templates/               # Project-specific rules
-│   └── .cursor/rules/      # MCP and development guidance
+├── templates/               # All template files organized
+│   ├── phase-templates/     # Phase 0-3 template files
+│   │   ├── PROFILE.yaml    # User profile & collaboration style
+│   │   ├── CONTEXT.md      # Project background & constraints
+│   │   ├── IDEA_NOTE.md    # Refined idea & goals
+│   │   ├── POC_PLAN.md     # Research & architecture
+│   │   ├── PRD.md          # Product requirements
+│   │   └── agents.md       # AI roles & coordination
+│   ├── documentation/       # Usage guides and workflows
+│   │   ├── TEMPLATE_USAGE.md   # Usage guide
+│   │   ├── BRANCHING_GUIDE.md  # Git workflow
+│   │   └── README.md       # Template documentation
+│   └── rules/              # Development guidance
+│       ├── debugging.mdc   # Debugging patterns
+│       ├── testing-patterns.mdc # Testing guidance
+│       ├── mcp-usage.mdc   # MCP server usage
+│       └── README.mdc      # Rules overview
 ├── reference/               # External reference materials
 │   └── research/           # Symlinked to C:\Users\aitor\Documents\research
 └── README.md               # This file
@@ -50,9 +56,9 @@ A reusable, conversational AI coding project template implementing the Translati
 
 ## Documentation
 
-- `docs/TEMPLATE_USAGE.md` - Complete usage guide
-- `docs/BRANCHING_GUIDE.md` - Git workflow and branching
-- `templates/.cursor/rules/` - Development and MCP guidance
+- `templates/documentation/TEMPLATE_USAGE.md` - Complete usage guide
+- `templates/documentation/BRANCHING_GUIDE.md` - Git workflow and branching
+- `templates/rules/` - Development and MCP guidance
 
 ## Reference Materials
 
