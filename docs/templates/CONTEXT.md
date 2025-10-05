@@ -37,11 +37,10 @@ Assumptions and Risks
 
 Phase 0 Prompt Starters
 ```text
-Begin Alignment:
-- Ask about editor, OS, background, learning style.
-- Infer prompting expertise and communication style.
-- Propose a one-sentence main idea; refine with user feedback.
-Outputs: Update PROFILE.yaml and CONTEXT.md.
+Conversational opener (Level 1):
+- What brought you here today?
+- What would you like to use AI to help you code?
+(Optional) Ask at most one follow-up (constraints or preferences).
+I’ll reflect back, propose a one-sentence idea, and ask to write tiny updates to PROFILE.yaml and CONTEXT.md.
 ```
-
 

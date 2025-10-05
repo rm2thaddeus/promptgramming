@@ -21,6 +21,17 @@ Shared templates and guides for using the Translation Hill methodology across di
 - Update links when moving or renaming files
 - Add project-specific rules in `.cursor/rules/`
 
+## Conversational Level 1 (Phase 0)
+- Opener: “What brought you here? What would you like to use AI to help you code?”
+- Ask at most one follow-up: constraints (OS/editor/runtime) or preferences (co‑pilot vs coach)
+- Propose a one-sentence idea and tiny updates; confirm before writing; keep diffs minimal
+
+## Subroles Standard (Per Phase Agents)
+- Phase 0: Greeter, Listener, Profiler, Synthesizer, Guide
+- Phase 1: Facilitator, Elicitor, Framer, Scribe, Gatekeeper
+- Phase 2: Researcher, Architect, Spike Planner, UX Planner, Coordinator
+- Phase 3: Planner/Gatekeeper/Summarizer (PM), Designer/Evaluator/Reviewer (Tech), Builder/Tester/Docu (Dev), Criteria Author/Verifier/Reporter (QA)
+
 ## Template Variables
 Replace these placeholders throughout the templates:
 - `<project_name>` — Your project's name

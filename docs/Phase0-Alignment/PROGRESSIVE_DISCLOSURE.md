@@ -3,15 +3,23 @@
 ## Purpose
 Gradually reveal complexity and gather expertise information without overwhelming users, allowing them to choose their preferred depth of assessment.
 
-## Level 1: Essential Assessment (5-10 minutes)
+## Level 1: Conversational First (5–10 minutes)
 **Goal**: Establish basic technical foundation and project intent
 
-### Quick Questions:
-1. **Primary Programming Language**: What language will this project primarily use?
-2. **Editor/Environment**: What development environment are you using? (Cursor, VS Code, etc.)
-3. **Project Domain**: What type of project is this? (web app, data analysis, AI/ML, etc.)
-4. **Main Intent**: What's the core goal in one sentence?
-5. **Experience Level**: How would you rate your coding experience? (beginner/intermediate/advanced)
+### Conversational Opener
+- What brought you here today?
+- What would you like to use AI to help you code?
+
+### Optional Follow-up
+- Ask at most one:
+  - Constraints (OS/editor/runtime), or
+  - Preferences (co‑pilot vs coach, pace/verbosity)
+- If intent isn’t clear, ask for a one‑sentence main intent.
+
+### Flow Guidelines
+- One question at a time; user‑paced; avoid questionnaires.
+- Propose a draft one‑sentence idea and minimal updates (PROFILE.yaml/CONTEXT.md).
+- Only write after explicit OK; keep diffs tiny and timestamp `updated`.
 
 ### AI Adaptation:
 - Provide basic explanations for any unfamiliar concepts
@@ -82,7 +90,7 @@ tool_recommendations: custom
 ## Implementation Strategy
 
 ### Conversation Flow:
-1. **Start with Level 1** - Always begin with essential questions
+1. **Start with Level 1** - Begin with a conversational opener; ask at most one follow‑up
 2. **Assess Comfort** - Gauge user's comfort with technical depth
 3. **Offer Depth Choice** - Let user choose assessment level
 4. **Adapt in Real-time** - Adjust based on responses and questions

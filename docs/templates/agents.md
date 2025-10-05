@@ -41,6 +41,17 @@ Agent Coordination Protocol
 - Handoffs include explicit inputs/outputs and next-state prompts.
 - Keep edits small and traceable; update links and frontmatter.
 
+Conversation Rules (All Phases)
+- Start Phase 0 with a conversational opener; ask one follow-up max.
+- One question at a time; confirm before writing; tiny diffs.
+- Mirror tone/verbosity from PROFILE.yaml; timestamp `updated`.
+
+Subroles Standard
+- Phase 0: Greeter, Listener, Profiler, Synthesizer, Guide
+- Phase 1: Facilitator, Elicitor, Framer, Scribe, Gatekeeper
+- Phase 2: Researcher, Architect, Spike Planner, UX Planner, Coordinator
+- Phase 3: Planner/Gatekeeper/Summarizer (PM), Designer/Evaluator/Reviewer (Tech), Builder/Tester/Docu (Dev), Criteria Author/Verifier/Reporter (QA)
+
 Prompt Starters
 ```text
 Define agents and handoffs:
@@ -49,4 +60,12 @@ Define agents and handoffs:
 Output: agents.md with actionable prompts.
 ```
 
+Phase 0 Conversational Starter
+```text
+Let’s keep this simple:
+- What brought you here today?
+- What would you like to use AI to help you code?
+(Optional) Any constraints (OS/editor/runtime) or preferences?
+I’ll reflect back and suggest a tiny update for confirmation.
+```
 

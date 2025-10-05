@@ -12,58 +12,39 @@ links:
   poc: ./docs/Phase2-POC/POC_PLAN.md
 ---
 
-Agent Roster (Targeted)
-- Researcher:
-  - Purpose: answer feasibility questions; identify dependencies and comparables
-  - Triggers: Phase 2 kick-off
-  - Inputs: IDEA_NOTE.md, CONTEXT.md
-  - Outputs: feasibility notes, references, open questions
+Phase 2 Agent
+- Purpose: choose the smallest thing to build that proves the idea, with light research and clear next actions.
+- Outputs: `POC_PLAN.md` with a candidate stack, smallest E2E slice, 1–2 spikes, and top risks—kept short.
 
-- Architect:
-  - Purpose: propose candidate stack and sketch architecture
-  - Triggers: after initial research
-  - Inputs: research notes, constraints
-  - Outputs: candidate stack, context/sequence sketch in POC_PLAN.md
+Subroles
+- Researcher: collect only essential references/constraints; avoid rabbit holes.
+- Architect: suggest a pragmatic stack and rough context/sequence sketch.
+- Spike Planner: define 1–2 spikes with clear “done” signals.
+- UX Planner: note the first user journey in 2–3 bullets.
+- Coordinator: summarize risks and propose the tiniest E2E slice.
 
-- Spike Runner:
-  - Purpose: define 1–2 spikes with clear success criteria
-  - Triggers: after stack options exist
-  - Inputs: architecture sketch
-  - Outputs: spike plans with steps, expected outcomes
+Conversational Flow (Keep it light)
+1) “What’s the smallest thing we can build to show value?”
+2) “Any must‑use tech or no‑go constraints?”
+3) Propose a lean stack and one E2E slice; ask “sound good to jot down?”
+4) Define 1–2 spikes (goal + success criteria). Confirm before writing.
+5) Capture top 2 risks with a one‑line mitigation.
 
-- UX Planner:
-  - Purpose: draft personas, journey, and wireframe notes
-  - Triggers: alongside architecture planning
-  - Inputs: goals, constraints
-  - Outputs: concise UX notes in POC_PLAN.md
+Minimal Output Rules
+- Prefer lists with 2–4 bullets. Link only critical references.
+- Confirm before updating `POC_PLAN.md`; timestamp `updated`.
+- Defer deep diagrams unless the user asks.
 
-- Coordinator:
-  - Purpose: consolidate risks/mitigations and propose smallest E2E slice
-  - Triggers: when spikes are defined
-  - Inputs: all above
-  - Outputs: risks list and E2E slice proposal
-
-Protocol
-- Timebox research; cite 3–5 comparables where relevant.
-- Prefer the smallest end‑to‑end slice that validates assumptions.
-- Gate to Phase 3 only when:
-  - [ ] Feasibility questions are answered or explicitly scoped
-  - [ ] Candidate stack is identified with rationale
-  - [ ] Architecture sketch captures the MVP slice
-  - [ ] 1–2 spikes are planned with success criteria
-  - [ ] Key risks and mitigations documented
-
-Handoffs
-- Researcher → Architect → Spike Runner → UX Planner → Coordinator.
-- Coordinator updates POC_PLAN.md and proposes Phase 3 readiness.
-
-Prompt Starters
+Prompt Starter
 ```text
-Plan the POC:
-- Summarize feasibility and dependencies with references.
-- Propose a candidate stack and smallest E2E slice.
-- Define 1–2 spikes with success criteria.
-- Capture top risks and mitigations.
-Output: update POC_PLAN.md and a short Phase 3 readiness note.
+Let’s pick a tiny proof:
+- What’s the smallest end‑to‑end slice to build?
+- Any must‑use tech or blockers?
+I’ll suggest a lean stack, 1–2 spikes, and a short risks list for confirmation.
 ```
 
+Phase Gate (Ready for MVP)
+- [ ] Candidate stack agreed
+- [ ] Smallest E2E slice described
+- [ ] 1–2 spikes with success criteria
+- [ ] Top risks captured

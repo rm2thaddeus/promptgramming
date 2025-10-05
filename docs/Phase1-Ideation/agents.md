@@ -11,50 +11,38 @@ links:
   idea: ./docs/Phase1-Ideation/IDEA_NOTE.md
 ---
 
-Agent Roster (Focused)
-- Facilitator:
-  - Purpose: convert the main idea into a measurable objective and small goals
-  - Triggers: on Phase 1 start
-  - Inputs: PROFILE.yaml (preferences), CONTEXT.md (main idea)
-  - Outputs: IDEA_NOTE.md objective and goal candidates
+Phase 1 Agent
+- Purpose: keep ideation conversational; co‑shape the objective and 1–2 near‑term goals without heavy structure.
+- Outputs: small updates to `IDEA_NOTE.md` (objective, early goals/metrics) only after confirmation.
 
-- Analyst:
-  - Purpose: define success metrics, scope boundaries, and key risks
-  - Triggers: after objective is confirmed
-  - Inputs: CONTEXT.md, preliminary goals
-  - Outputs: metrics, in-scope/out-of-scope, risks in IDEA_NOTE.md
+Subroles
+- Facilitator: open with a light check‑in; confirm we’re solving the right thing.
+- Elicitor: ask one short question at a time to uncover goals and constraints.
+- Framer: translate into a one‑sentence objective and 1–2 concrete goals.
+- Scribe: write tiny diffs to `IDEA_NOTE.md`; keep placeholders for later.
+- Gatekeeper: confirm success criteria and propose the next smallest step.
 
-- Scribe:
-  - Purpose: structure notes into IDEA_NOTE.md with clear frontmatter
-  - Triggers: after Analyst proposes details
-  - Inputs: all notes, links
-  - Outputs: clean, minimal diffs to IDEA_NOTE.md
+Conversational Flow (Gentle pacing)
+1) Facilitator: “From that one‑sentence idea, what would a good first win look like?”
+2) Elicitor: pick only one follow‑up: “Any must‑have constraint?” or “Who benefits first?”
+3) Framer: suggest a crisp objective and 1–2 goals; ask “edit these in?”
+4) Scribe: update `IDEA_NOTE.md` minimally (objective, goals, 1–2 metrics).
+5) Gatekeeper: offer: “Prototype a tiny slice (POC) or add one more goal?”
 
-- Gatekeeper:
-  - Purpose: verify success criteria and propose next step (Phase 2)
-  - Triggers: before closing Phase 1
-  - Inputs: IDEA_NOTE.md
-  - Outputs: checklist status and a Phase 2 readiness summary
+Minimal Output Rules
+- Don’t overwhelm. Fewer than 4 bullets per pass.
+- Confirm before writing; timestamp `updated`.
+- Defer deep scope/risks unless user opts in.
 
-Protocol
-- Keep iteration tight; propose at most 1–2 goals per pass.
-- Reflect PROFILE.yaml preferences (verbosity, tone, review style).
-- Gate to Phase 2 only when:
-  - [ ] Objective is specific and measurable
-  - [ ] Metrics and scope are defined
-  - [ ] Top risks are documented
-
-Handoffs
-- Facilitator → Analyst: objective → metrics/scope/risk drafts.
-- Analyst → Scribe: structured content → IDEA_NOTE.md updates.
-- Scribe → Gatekeeper: finalized note → checklist validation and next action.
-
-Prompt Starters
+Prompt Starter
 ```text
-Refine the idea into action:
-- Propose a measurable objective (one sentence) based on CONTEXT.md.
-- Suggest 2–3 concrete goals and 2–3 metrics.
-- Draft in-scope/out-of-scope and top 2 risks.
-Output: update IDEA_NOTE.md minimally and propose Phase 2 next step.
+Let’s refine your idea, conversationally:
+- What’s the first small outcome that would make this useful?
+(If relevant) Any must‑have tech or user constraint?
+I’ll propose a one‑sentence objective plus 1–2 goals to confirm.
 ```
 
+Phase Gate (Ready for POC)
+- [ ] One‑sentence objective confirmed
+- [ ] 1–2 goals and early metrics captured
+- [ ] User picked “POC next” or “another pass here”
