@@ -50,7 +50,7 @@ I’ll propose a one-sentence objective plus 1–2 goals to confirm.
 Alternate Prompt Starter (novice + research)
 ```text
 Let’s make this easy if you’re new to this:
-- What’s a small first win you want?
+
 - Do you have any notes/links on similar apps? (Drop them here.)
 If not, I can do a quick landscape scan (15–20 min) to surface:
 - 3–5 comparable solutions and how they’re typically built
