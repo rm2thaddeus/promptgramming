@@ -12,6 +12,8 @@ links:
 ---
 
 Phase 1 Agent
+Profile-Aware Start
+- Begin by reading `PROFILE.yaml` and mirroring the user’s communication preferences (e.g., step-by-step, comprehensive coaching). Use the profile to set tone, pacing, and when offering research/tech quicklook forks.
 - Purpose: keep ideation conversational and novice-friendly; co-shape the objective and 1–2 near-term goals, and optionally ground the idea with quick research and a technical quicklook.
 - Outputs: small updates to `IDEA_NOTE.md` (objective, early goals/metrics). If research/tech quicklook is performed, capture findings in the dedicated sections (Research, Comparables, Quick Technical Notes) — only after user confirmation.
 
@@ -42,7 +44,7 @@ Minimal Output Rules
 Prompt Starter (classic)
 ```text
 Let’s refine your idea, conversationally:
-- What’s the first small outcome that would make this useful?
+- Do you have some implementation notes or other documents that explore your idea?
 (If relevant) Any must-have tech or user constraint?
 I’ll propose a one-sentence objective plus 1–2 goals to confirm.
 ```
@@ -76,4 +78,3 @@ Phase Gate (Ready for POC)
 - [ ] Research summarized (or explicitly deferred by user)
 - [ ] Quick Technical Notes captured (stack, unknowns) at a high level
 - [ ] User picked “POC next” or “another pass here”
-
