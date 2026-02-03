@@ -232,6 +232,33 @@
       color: var(--muted);
     }
 
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .image-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: rgba(8, 14, 13, 0.75);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .image-caption {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
     .diagram {
       border: 1px solid var(--line);
       border-radius: var(--radius-md);
@@ -409,6 +436,12 @@
           <text x="690" y="75" fill="#9bb6b0" font-size="12">Phase 3</text>
         </svg>
       </div>
+      <div class="image-grid">
+        <div class="image-card">
+          <img src="assets/translation-hill.png" alt="Schematic of the Translation Hill four-phase pathway">
+          <div class="image-caption">Translation Hill schematic (Phase 0 to Phase 3).</div>
+        </div>
+      </div>
     </section>
 
     <section id="workflow" class="section reveal">
@@ -460,6 +493,16 @@
             <h4>Outcome</h4>
             <p>Production-ready MVP + roadmap.</p>
           </div>
+        </div>
+      </div>
+      <div class="image-grid">
+        <div class="image-card">
+          <img src="assets/intent-to-production.png" alt="Intent to production pipeline schematic">
+          <div class="image-caption">From intent to production, with LLM support.</div>
+        </div>
+        <div class="image-card">
+          <img src="assets/safety-loop.png" alt="Evidence and human approval loop schematic">
+          <div class="image-caption">Evidence and human approval keep the system safe.</div>
         </div>
       </div>
     </section>
