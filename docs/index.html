@@ -231,6 +231,63 @@
       color: var(--muted);
     }
 
+    .diagram {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      background: rgba(8, 14, 13, 0.8);
+      margin-top: 18px;
+    }
+
+    .hill-diagram {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .pipeline {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(8, 14, 13, 0.8);
+    }
+
+    .pipeline-track {
+      position: relative;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(38, 226, 183, 0.12);
+      overflow: hidden;
+      margin: 16px 0 20px;
+    }
+
+    .pipeline-flow {
+      position: absolute;
+      top: 0;
+      left: -40%;
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(90deg, transparent, rgba(38, 226, 183, 0.7), rgba(122, 215, 255, 0.7), transparent);
+      animation: flowPulse 6s linear infinite;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes flowPulse {
+      from { transform: translateX(0); }
+      to { transform: translateX(220%); }
+    }
+
     .footer {
       text-align: center;
       color: var(--muted);
@@ -249,7 +306,7 @@
 </head>
 <body>
   <main class="page">
-    <section id="hero" class="section hero">
+    <section id="hero" class="section hero reveal">
       <div>
         <span class="badge">Translation Hill Framework</span>
         <h1>Production code by non-technical users.</h1>
@@ -290,7 +347,7 @@
       </div>
     </section>
 
-    <section id="translation-hill" class="section">
+    <section id="translation-hill" class="section reveal">
       <h2>Translation Hill, explained</h2>
       <div class="split">
         <p>
@@ -320,9 +377,28 @@
           </div>
         </div>
       </div>
+      <div class="diagram">
+        <svg class="hill-diagram" viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="hillGlow" x1="0" x2="1">
+              <stop offset="0%" stop-color="#26e2b7" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#7ad7ff" stop-opacity="0.9"/>
+            </linearGradient>
+          </defs>
+          <path d="M40 140 C 180 60, 300 60, 420 120 S 640 160, 760 80" stroke="url(#hillGlow)" stroke-width="4" fill="none"/>
+          <circle cx="80" cy="130" r="10" fill="#26e2b7"/>
+          <circle cx="260" cy="78" r="10" fill="#7ad7ff"/>
+          <circle cx="460" cy="125" r="10" fill="#f0b35c"/>
+          <circle cx="720" cy="95" r="10" fill="#26e2b7"/>
+          <text x="60" y="165" fill="#9bb6b0" font-size="12">Phase 0</text>
+          <text x="230" y="60" fill="#9bb6b0" font-size="12">Phase 1</text>
+          <text x="430" y="160" fill="#9bb6b0" font-size="12">Phase 2</text>
+          <text x="690" y="75" fill="#9bb6b0" font-size="12">Phase 3</text>
+        </svg>
+      </div>
     </section>
 
-    <section id="workflow" class="section">
+    <section id="workflow" class="section reveal">
       <h2>The workflow, in plain language</h2>
       <div class="flow">
         <div class="flow-step">
@@ -344,33 +420,38 @@
       </div>
     </section>
 
-    <section id="how-it-works" class="section">
+    <section id="how-it-works" class="section reveal">
       <h2>How it works</h2>
       <p>
         Your intent flows through a structured pipeline. Each phase produces a concrete artifact
         that becomes the input to the next phase. The system keeps context alive and blocks drift.
       </p>
-      <div class="flow">
-        <div class="flow-step">
-          <h4>Inputs</h4>
-          <p>Idea, constraints, and your domain expertise.</p>
+      <div class="pipeline">
+        <div class="pipeline-track">
+          <span class="pipeline-flow" aria-hidden="true"></span>
         </div>
-        <div class="flow-step">
-          <h4>Artifacts</h4>
-          <p>PROFILE, IDEA_NOTE, POC_PLAN, PRD.</p>
-        </div>
-        <div class="flow-step">
-          <h4>Execution</h4>
-          <p>LLMs handle research, drafting, and coding tasks.</p>
-        </div>
-        <div class="flow-step">
-          <h4>Output</h4>
-          <p>Production-ready MVP + clear next steps.</p>
+        <div class="flow">
+          <div class="flow-step">
+            <h4>Intent</h4>
+            <p>Questions capture your real goals.</p>
+          </div>
+          <div class="flow-step">
+            <h4>Artifacts</h4>
+            <p>PROFILE, IDEA_NOTE, POC_PLAN, PRD.</p>
+          </div>
+          <div class="flow-step">
+            <h4>Execution</h4>
+            <p>LLMs complete the tasks you cannot do alone.</p>
+          </div>
+          <div class="flow-step">
+            <h4>Outcome</h4>
+            <p>Production-ready MVP + roadmap.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="proof-pixel" class="section">
+    <section id="proof-pixel" class="section reveal">
       <h2>Proof: Pixel Detective</h2>
       <div class="proof-grid">
         <div>
@@ -395,7 +476,7 @@
       </div>
     </section>
 
-    <section id="proof-skills" class="section">
+    <section id="proof-skills" class="section reveal">
       <h2>Proof: Aitor Skills</h2>
       <div class="proof-grid">
         <div class="proof-card">
@@ -417,7 +498,7 @@
       </div>
     </section>
 
-    <section id="cta" class="section">
+    <section id="cta" class="section reveal">
       <h2>Open source, ready to use</h2>
       <p>
         Use the template, remix it, and ship. If this helps, share it around or reach out.
@@ -433,5 +514,18 @@
       Built to translate intent into production-grade software.
     </footer>
   </main>
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
