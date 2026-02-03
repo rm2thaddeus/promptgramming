@@ -314,17 +314,6 @@
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-
-      .pipeline-flow {
-        animation: none;
-      }
-    }
   </style>
 </head>
 <body>
@@ -543,6 +532,11 @@
       ".section, .flow-step, .card, .proof-card, .hero-card, .diagram"
     );
     revealTargets.forEach((el) => el.classList.add("reveal"));
+
+    if (!("IntersectionObserver" in window)) {
+      revealTargets.forEach((el) => el.classList.add("active"));
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries, activeObserver) => {
