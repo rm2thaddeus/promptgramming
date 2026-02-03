@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Promptgramming - Translation Hill</title>
+  <script>document.documentElement.classList.add("js");</script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1110;
+      --panel: #121b1a;
+      --panel-2: #162423;
+      --ink: #eaf5f2;
+      --muted: #9bb6b0;
+      --accent: #26e2b7;
+      --accent-2: #f0b35c;
+      --accent-3: #7ad7ff;
+      --line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --maxw: 1200px;
+      --pad-x: 24px;
+      --pad-y: 64px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(38, 226, 183, 0.18), transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(122, 215, 255, 0.14), transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(240, 179, 92, 0.16), transparent 55%),
+        var(--bg);
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(38, 226, 183, 0.5);
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: var(--pad-y) var(--pad-x) 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 4vw, 4rem);
+      line-height: 1.05;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.03rem;
+    }
+
+    .section {
+      background: rgba(18, 27, 26, 0.75);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(38, 226, 183, 0.4);
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: rgba(18, 27, 26, 0.8);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--accent);
+      background: linear-gradient(135deg, rgba(38, 226, 183, 0.9), rgba(122, 215, 255, 0.9));
+      color: #061211;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 16px 40px rgba(38, 226, 183, 0.2);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .hero-card {
+      background: rgba(22, 36, 35, 0.9);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid rgba(122, 215, 255, 0.2);
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(12, 20, 19, 0.6);
+    }
+
+    .stat h4 {
+      margin: 0 0 6px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-2);
+    }
+
+    .stat p {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      background: rgba(13, 22, 21, 0.7);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-family: "JetBrains Mono", monospace;
+      color: var(--accent);
+      border: 1px solid rgba(38, 226, 183, 0.3);
+      background: rgba(38, 226, 183, 0.08);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .flow-step {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(11, 18, 17, 0.7);
+    }
+
+    .flow-step h4 {
+      margin: 0 0 8px;
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    .proof-card {
+      border: 1px solid rgba(38, 226, 183, 0.2);
+      background: rgba(12, 18, 18, 0.9);
+      padding: 20px;
+      border-radius: var(--radius-md);
+    }
+
+    .proof-card ul {
+      margin: 12px 0 0 18px;
+      color: var(--muted);
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .image-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: rgba(8, 14, 13, 0.75);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .image-caption {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .diagram {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      background: rgba(8, 14, 13, 0.8);
+      margin-top: 18px;
+    }
+
+    .hill-diagram {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .pipeline {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(8, 14, 13, 0.8);
+    }
+
+    .pipeline-track {
+      position: relative;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(38, 226, 183, 0.12);
+      overflow: hidden;
+      margin: 16px 0 20px;
+    }
+
+    .pipeline-flow {
+      position: absolute;
+      top: 0;
+      left: -40%;
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(90deg, transparent, rgba(38, 226, 183, 0.7), rgba(122, 215, 255, 0.7), transparent);
+      animation: flowPulse 6s linear infinite;
+    }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .js .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes flowPulse {
+      from { transform: translateX(0); }
+      to { transform: translateX(220%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js .reveal {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+      .pipeline-flow {
+        animation: none;
+      }
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .section {
+        padding: 28px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section id="hero" class="section hero reveal">
+      <div>
+        <span class="badge">Translation Hill Framework</span>
+        <h1>Production code by non-technical users.</h1>
+        <p>
+          Promptgramming is a step-by-step methodology that translates your intent into production-ready software,
+          even if you do not write code. You answer the right questions in sequence, and AI assistants handle the parts
+          you cannot do alone.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="https://github.com/rm2thaddeus/promptgramming">Use the template (free)</a>
+          <a class="btn secondary" href="#proof-pixel">See proof</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat">
+            <h4>Outcome</h4>
+            <p>Production-ready products</p>
+          </div>
+          <div class="stat">
+            <h4>Audience</h4>
+            <p>Founders, PMs, Scientists</p>
+          </div>
+          <div class="stat">
+            <h4>Method</h4>
+            <p>Question-driven translation</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>What this unlocks</h3>
+        <p>
+          Scalable pilots, the bridge from early prototype to first usable product, and the final push into production.
+          The system keeps you in control while AI fills the gaps.
+        </p>
+        <div class="cta-row">
+          <span class="chip">Phase 0-3</span>
+          <span class="chip">Context to Code</span>
+          <span class="chip">Human in the loop</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="translation-hill" class="section reveal">
+      <h2>Translation Hill, explained</h2>
+      <div class="split">
+        <p>
+          The Translation Hill method brings you to reliable outcomes by asking the right questions in sequence.
+          Each answer becomes a written output, each output feeds the next, and AI assistants execute the parts you cannot do by yourself.
+        </p>
+        <div class="card">
+          <h3>Four steps, one climb</h3>
+          <p>Alignment -> Ideation -> Feasibility -> First usable product</p>
+          <div class="flow">
+            <div class="flow-step">
+              <h4>Phase 0</h4>
+              <p>Profile + context, set the intent.</p>
+            </div>
+            <div class="flow-step">
+              <h4>Phase 1</h4>
+              <p>Goals, scope, metrics, risks.</p>
+            </div>
+            <div class="flow-step">
+              <h4>Phase 2</h4>
+              <p>Feasibility + system design.</p>
+            </div>
+            <div class="flow-step">
+              <h4>Phase 3</h4>
+              <p>Product requirements + production-ready build.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="diagram">
+        <svg class="hill-diagram" viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="hillGlow" x1="0" x2="1">
+              <stop offset="0%" stop-color="#26e2b7" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#7ad7ff" stop-opacity="0.9"/>
+            </linearGradient>
+          </defs>
+          <path d="M40 140 C 180 60, 300 60, 420 120 S 640 160, 760 80" stroke="url(#hillGlow)" stroke-width="4" fill="none"/>
+          <circle cx="80" cy="130" r="10" fill="#26e2b7"/>
+          <circle cx="260" cy="78" r="10" fill="#7ad7ff"/>
+          <circle cx="460" cy="125" r="10" fill="#f0b35c"/>
+          <circle cx="720" cy="95" r="10" fill="#26e2b7"/>
+          <text x="60" y="165" fill="#9bb6b0" font-size="12">Phase 0</text>
+          <text x="230" y="60" fill="#9bb6b0" font-size="12">Phase 1</text>
+          <text x="430" y="160" fill="#9bb6b0" font-size="12">Phase 2</text>
+          <text x="690" y="75" fill="#9bb6b0" font-size="12">Phase 3</text>
+        </svg>
+      </div>
+      <div class="image-grid">
+        <div class="image-card">
+          <img src="assets/translation-hill.png" alt="Schematic of the Translation Hill four-phase pathway">
+          <div class="image-caption">Translation Hill schematic (Phase 0 to Phase 3).</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section reveal">
+      <h2>The workflow, in plain language</h2>
+      <div class="flow">
+        <div class="flow-step">
+          <h4>Phase 0 - Alignment</h4>
+          <p>Clarify who you are, what you want, and what success looks like.</p>
+        </div>
+        <div class="flow-step">
+          <h4>Phase 1 - Ideation</h4>
+          <p>Translate the idea into goals, scope, and measurable outcomes.</p>
+        </div>
+        <div class="flow-step">
+          <h4>Phase 2 - Early prototype</h4>
+          <p>Prove feasibility, system design, and the smallest viable slice.</p>
+        </div>
+        <div class="flow-step">
+          <h4>Phase 3 - First product</h4>
+          <p>Define acceptance criteria and build a production-ready prototype.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section reveal">
+      <h2>How it works</h2>
+      <p>
+        Your intent flows through a structured pipeline. Each phase produces a concrete artifact
+        that becomes the input to the next phase. The system keeps context alive and blocks drift.
+      </p>
+      <div class="pipeline">
+        <div class="pipeline-track">
+          <span class="pipeline-flow" aria-hidden="true"></span>
+        </div>
+        <div class="flow">
+          <div class="flow-step">
+            <h4>Intent</h4>
+            <p>Questions capture your real goals.</p>
+          </div>
+          <div class="flow-step">
+            <h4>Artifacts</h4>
+            <p>Profile, idea brief, feasibility plan, product requirements.</p>
+          </div>
+          <div class="flow-step">
+            <h4>Execution</h4>
+            <p>AI assistants complete the tasks you cannot do alone.</p>
+          </div>
+          <div class="flow-step">
+            <h4>Outcome</h4>
+            <p>Production-ready product + roadmap.</p>
+          </div>
+        </div>
+      </div>
+      <div class="image-grid">
+        <div class="image-card">
+          <img src="assets/intent-to-production.png" alt="Intent to production pipeline schematic">
+          <div class="image-caption">From intent to production, with AI support.</div>
+        </div>
+        <div class="image-card">
+          <img src="assets/safety-loop.png" alt="Evidence and human approval loop schematic">
+          <div class="image-caption">Evidence and human approval keep the system safe.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof-pixel" class="section reveal">
+      <h2>Proof: Pixel Detective</h2>
+      <div class="proof-grid">
+        <div>
+          <p>
+            Pixel Detective is a vibe coding manifesto. It was built with no hand-written code, using
+            idea generation, prompt engineering, and AI-driven software synthesis. The Translation Hill
+            process guided a scientist (not a software engineer) to deliver a complex production system.
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="https://github.com/rm2thaddeus/Pixel_Detective">View Pixel Detective</a>
+          </div>
+        </div>
+        <div class="proof-card">
+          <h3>What shipped</h3>
+          <ul>
+            <li>Microservices architecture with FastAPI backends</li>
+            <li>Qdrant vector database powering semantic search</li>
+            <li>GPU-accelerated UMAP + clustering</li>
+            <li>Next.js UI/UX with a latent space explorer</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof-skills" class="section reveal">
+      <h2>Proof: Aitor Skills</h2>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <h3>Workflow genome</h3>
+          <p>
+            Aitor Skills is a living library of protocols and telemetry that power the Promptgramming
+            process. It shows how the framework evolves through evidence, not intuition.
+          </p>
+          <div class="cta-row">
+            <a class="btn secondary" href="https://github.com/rm2thaddeus/Aitor_Skills">Explore Aitor Skills</a>
+          </div>
+        </div>
+        <div>
+          <p>
+            These protocols power the Translation Hill phases and keep the collaboration between
+            human intent and AI execution safe, traceable, and repeatable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="section reveal">
+      <h2>Open source, ready to use</h2>
+      <p>
+        Use the template, remix it, and ship. If this helps, share it around or reach out.
+        If you are not here for glory, you are in the right place.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="https://github.com/rm2thaddeus/promptgramming">Use the template</a>
+        <a class="btn secondary" href="https://github.com/rm2thaddeus/promptgramming">Share or contribute</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Built to translate intent into production-grade software.
+    </footer>
+  </main>
+  <script>
+    const revealTargets = document.querySelectorAll(
+      ".section, .flow-step, .card, .proof-card, .hero-card, .diagram"
+    );
+    revealTargets.forEach((el) => el.classList.add("reveal"));
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries, activeObserver) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              activeObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+      );
+
+      revealTargets.forEach((el) => observer.observe(el));
+    } else {
+      revealTargets.forEach((el) => el.classList.add("active"));
+    }
+  </script>
+</body>
+</html>
