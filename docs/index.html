@@ -38,7 +38,12 @@
       min-height: 100vh;
     }
 
-    a { color: inherit; }
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(38, 226, 183, 0.5);
+      text-underline-offset: 3px;
+    }
 
     .page {
       max-width: var(--maxw);
@@ -278,7 +283,7 @@
           The system keeps you in control while AI fills the gaps.
         </p>
         <div class="cta-row">
-          <span class="chip">Phase 0–3</span>
+          <span class="chip">Phase 0-3</span>
           <span class="chip">Context to Code</span>
           <span class="chip">Human in the loop</span>
         </div>
