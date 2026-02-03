@@ -272,13 +272,13 @@
       animation: flowPulse 6s linear infinite;
     }
 
-    .reveal {
+    .js .reveal {
       opacity: 0;
       transform: translateY(18px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    .reveal.active {
+    .js .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
@@ -286,6 +286,17 @@
     @keyframes flowPulse {
       from { transform: translateX(0); }
       to { transform: translateX(220%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js .reveal {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+      .pipeline-flow {
+        animation: none;
+      }
     }
 
     .footer {
@@ -300,6 +311,18 @@
       }
       .section {
         padding: 28px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .pipeline-flow {
+        animation: none;
       }
     }
   </style>
@@ -515,17 +538,25 @@
     </footer>
   </main>
   <script>
-    const reveals = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
+    document.documentElement.classList.add("js");
+    const revealTargets = document.querySelectorAll(
+      ".section, .flow-step, .card, .proof-card, .hero-card, .diagram"
+    );
+    revealTargets.forEach((el) => el.classList.add("reveal"));
 
-    reveals.forEach(el => observer.observe(el));
+    const observer = new IntersectionObserver(
+      (entries, activeObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            activeObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    revealTargets.forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
