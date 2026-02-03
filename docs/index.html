@@ -4,24 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Promptgramming - Translation Hill</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0b1110;
-      --panel: #121b1a;
-      --panel-2: #162423;
+      --panel: rgba(18, 27, 26, 0.75);
+      --panel-2: rgba(22, 36, 35, 0.7);
       --ink: #eaf5f2;
       --muted: #9bb6b0;
       --accent: #26e2b7;
       --accent-2: #f0b35c;
       --accent-3: #7ad7ff;
       --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.18);
       --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
       --radius-lg: 22px;
       --radius-md: 16px;
       --maxw: 1200px;
       --pad-x: 24px;
-      --pad-y: 64px;
+      --pad-y: 72px;
     }
 
     * { box-sizing: border-box; }
@@ -31,9 +32,9 @@
       font-family: "IBM Plex Sans", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 20% 10%, rgba(38, 226, 183, 0.18), transparent 55%),
-        radial-gradient(circle at 80% 0%, rgba(122, 215, 255, 0.14), transparent 50%),
-        radial-gradient(circle at 50% 90%, rgba(240, 179, 92, 0.16), transparent 55%),
+        radial-gradient(circle at 12% 8%, rgba(38, 226, 183, 0.18), transparent 55%),
+        radial-gradient(circle at 78% 6%, rgba(122, 215, 255, 0.14), transparent 50%),
+        radial-gradient(circle at 52% 86%, rgba(240, 179, 92, 0.16), transparent 55%),
         var(--bg);
       min-height: 100vh;
     }
@@ -45,32 +46,446 @@
       display: flex;
       flex-direction: column;
       gap: 64px;
+      position: relative;
     }
 
     h1, h2, h3 {
-      font-family: "Space Grotesk", sans-serif;
-      letter-spacing: -0.02em;
+      font-family: "Fraunces", serif;
+      letter-spacing: -0.01em;
+      margin: 0 0 12px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 1.05;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+    }
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent-3);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
     }
 
     .section {
-      background: rgba(18, 27, 26, 0.65);
+      background: var(--panel);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      padding: 36px;
+      padding: 40px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(280px 120px at 12% 0%, rgba(38, 226, 183, 0.12), transparent 60%),
+        radial-gradient(240px 140px at 95% 15%, rgba(122, 215, 255, 0.12), transparent 60%),
+        radial-gradient(320px 160px at 80% 100%, rgba(240, 179, 92, 0.1), transparent 60%);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.72rem;
+      color: var(--accent-3);
+      margin-bottom: 12px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: var(--panel-2);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      border: 1px solid var(--line-strong);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--ink);
+      background: rgba(11, 17, 16, 0.4);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .button {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--line-strong);
+      font-weight: 600;
+      color: var(--ink);
+      background: rgba(11, 17, 16, 0.35);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, rgba(38, 226, 183, 0.3), rgba(122, 215, 255, 0.15));
+      border-color: rgba(38, 226, 183, 0.45);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(11, 17, 16, 0.45);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: grid;
+      gap: 10px;
+      min-height: 180px;
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(122, 215, 255, 0.15);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .card h3 {
+      margin-bottom: 4px;
+    }
+
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .phase {
+      background: rgba(11, 17, 16, 0.5);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+      min-height: 220px;
+    }
+
+    .phase-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--accent-2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .diagram {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .node {
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      padding: 18px;
+      background: rgba(11, 17, 16, 0.5);
+      position: relative;
+      min-height: 140px;
+    }
+
+    .node::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      width: 20px;
+      height: 1px;
+      background: var(--line-strong);
+    }
+
+    .node:last-child::after {
+      display: none;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .proof-panel {
+      background: rgba(11, 17, 16, 0.5);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .schematic {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      background: rgba(7, 10, 9, 0.6);
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow-grid,
+      .diagram {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .node::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 56px 18px 80px;
+        gap: 48px;
+      }
+
+      .section {
+        padding: 28px;
+      }
+
+      .workflow-grid,
+      .diagram {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
   <main class="page">
-    <section id="hero" class="section"></section>
-    <section id="translation-hill" class="section"></section>
-    <section id="workflow" class="section"></section>
-    <section id="how-it-works" class="section"></section>
-    <section id="proof-pixel" class="section"></section>
-    <section id="proof-skills" class="section"></section>
-    <section id="cta" class="section"></section>
+    <section id="hero" class="section">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Translation Hill</div>
+          <h1>Production code, authored by non-technical teams.</h1>
+          <p>Promptgramming is the operating system for turning business intent into production software. Translation Hill guides founders and PMs through every phase, from raw problem statements to live infrastructure.</p>
+          <div class="pill-row">
+            <span class="pill">Non-technical friendly</span>
+            <span class="pill">Structured workflow</span>
+            <span class="pill">Open-source template</span>
+          </div>
+          <div class="cta-row">
+            <a class="button primary" href="#cta">Use the template</a>
+            <a class="button" href="#translation-hill">See the workflow</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="eyebrow">Guided output</div>
+          <h3>Translate ideas into shippable systems.</h3>
+          <p>Translation Hill breaks delivery into four user-friendly phases. Each phase produces a tangible artifact your team can review, refine, and trust.</p>
+          <div class="schematic">
+            PHASE 0  ?  PHASE 1  ?  PHASE 2  ?  PHASE 3
+            <br>
+            intent      scope       build       production
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="translation-hill" class="section">
+      <div class="eyebrow">Overview</div>
+      <h2>Translation Hill keeps the team aligned as complexity rises.</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>From prompts to decisions</h3>
+          <p>Every phase yields a concrete deliverable: a clarified brief, a scope and architecture, a working implementation, and a launch-ready system with observability.</p>
+        </div>
+        <div class="card">
+          <h3>Designed for founders and PMs</h3>
+          <p>Language, artifacts, and reviews are tuned for non-technical stakeholders, so you can steer the product without waiting on scarce engineering bandwidth.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section">
+      <div class="eyebrow">Workflow</div>
+      <h2>Phase 0–3: a user-friendly path to production.</h2>
+      <div class="workflow-grid">
+        <article class="phase">
+          <div class="phase-label">Phase 0</div>
+          <h3>Intent & framing</h3>
+          <p>We clarify the business goal, define the problem, and capture the desired user experience in language your team owns.</p>
+        </article>
+        <article class="phase">
+          <div class="phase-label">Phase 1</div>
+          <h3>Scope & plan</h3>
+          <p>Translate intent into a buildable scope, architecture map, and crisp acceptance criteria before any coding starts.</p>
+        </article>
+        <article class="phase">
+          <div class="phase-label">Phase 2</div>
+          <h3>Build & iterate</h3>
+          <p>Generate production-grade code with targeted reviews, testing, and validation at every milestone.</p>
+        </article>
+        <article class="phase">
+          <div class="phase-label">Phase 3</div>
+          <h3>Launch & evolve</h3>
+          <p>Operationalize with monitoring, performance hardening, and ongoing iteration so the system stays healthy.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section">
+      <div class="eyebrow">How It Works</div>
+      <h2>Human intent in, production system out.</h2>
+      <div class="diagram">
+        <div class="node">
+          <h3>Business goal</h3>
+          <p>Define the outcome in plain language and align on the user promise.</p>
+        </div>
+        <div class="node">
+          <h3>Translation artifacts</h3>
+          <p>Structured prompts, specs, and checklists turn intent into build-ready instructions.</p>
+        </div>
+        <div class="node">
+          <h3>System build</h3>
+          <p>Code generation, review loops, and testing deliver stable production code.</p>
+        </div>
+        <div class="node">
+          <h3>Operational quality</h3>
+          <p>Deploy, monitor, and evolve with confidence using Phase 3 practices.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof-pixel" class="section">
+      <div class="eyebrow">Proof: Pixel Detective</div>
+      <h2>Complex systems, built end-to-end.</h2>
+      <div class="proof-grid">
+        <div class="proof-panel">
+          <p>Pixel Detective is a production-grade platform with microservices, Qdrant-powered vector search, UI/UX workflows, GPU acceleration, and a published vibe coding manifesto. It demonstrates Translation Hill at full fidelity.</p>
+          <p><a href="https://github.com/rm2thaddeus/Pixel_Detective">View the Pixel Detective repo</a></p>
+        </div>
+        <div class="schematic">
+          SERVICES: ingest · embed · search · api · ui
+          <br>
+          DATA: qdrant vectors · postgres metadata
+          <br>
+          GPU: accel pipeline · batched inference
+          <br>
+          PRINCIPLES: vibe coding manifesto
+        </div>
+      </div>
+    </section>
+
+    <section id="proof-skills" class="section">
+      <div class="eyebrow">Proof: Aitor Skills</div>
+      <h2>A skills system built for composable delivery.</h2>
+      <div class="proof-grid">
+        <div class="proof-panel">
+          <p>The Aitor Skills repo documents a reusable skills system: repeatable workflows, reusable tooling, and clear guardrails for non-technical operators. It proves the Translation Hill template can scale across projects.</p>
+          <p><a href="https://github.com/rm2thaddeus/Aitor_Skills">View the Aitor Skills repo</a></p>
+        </div>
+        <div class="schematic">
+          SKILLS: workflows · tooling · quality gates
+          <br>
+          OUTPUT: consistent delivery · shared language
+          <br>
+          SYSTEM: composable, open-source, extensible
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="section">
+      <div class="eyebrow">Open Source</div>
+      <h2>Use the template, share it, or reach out.</h2>
+      <p>Translation Hill is open-source and designed to help non-technical teams ship production systems. Start with the template, adapt it for your product, and contribute improvements back to the community.</p>
+      <div class="cta-row">
+        <a class="button primary" href="https://github.com/rm2thaddeus/Aitor_Skills">Use the template</a>
+        <a class="button" href="https://github.com/rm2thaddeus/Pixel_Detective">See a full build</a>
+        <a class="button" href="mailto:hello@promptgramming.com">Reach out</a>
+      </div>
+    </section>
+
+    <footer class="section">
+      <div class="eyebrow">Promptgramming</div>
+      <p>Translation Hill is a framework for turning plain-language intent into production software.</p>
+    </footer>
   </main>
 </body>
 </html>
